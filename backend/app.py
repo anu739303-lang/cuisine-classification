@@ -21,7 +21,13 @@ if not os.path.exists(MODEL_PATH):
     model = None
 else:
     try:
-        model = joblib.load(MODEL_PATH)
+        loaded = joblib.load(MODEL_PATH)
+        # Handle if model.pkl contains a tuple (model, vectorizer) or just the model
+        if isinstance(loaded, tuple):
+            model = loaded[0]
+        else:
+            model = loaded
+        
         load_error = None
     except ModuleNotFoundError as e:
         # Missing dependency (e.g., sklearn) required to unpickle model
