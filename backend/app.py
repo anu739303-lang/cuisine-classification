@@ -10,7 +10,9 @@ except Exception:
     # If sklearn or the warning class isn't available, proceed without filtering
     pass
 
-app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend'))
+app = Flask(__name__, 
+            static_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend'),
+            static_url_path='/')
 CORS(app)
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model.pkl')
@@ -46,7 +48,8 @@ def predict():
 def serve(path):
     if path and os.path.exists(os.path.join(app.static_folder, path)):
         return send_from_directory(app.static_folder, path)
-    return send_from_directory(app.static_folder, 'index.html')
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8000, debug=True)
