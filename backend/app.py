@@ -10,7 +10,7 @@ except Exception:
     # If sklearn or the warning class isn't available, proceed without filtering
     pass
 
-app = Flask(__name__, static_folder='frontend')
+app = Flask(__name__, static_folder=os.path.join(os.path.dirname(__file__), '..', 'frontend'))
 CORS(app)
 
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model.pkl')
