@@ -1,16 +1,83 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Cuisine Classifier</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuisine Classification - AI Powered</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Cuisine Classification</h1>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="title">🍽️ Cuisine Classifier</h1>
+                <p class="subtitle">Discover cuisines with AI-powered classification</p>
+            </div>
+        </header>
 
-    <input type="text" id="text" placeholder="Enter restaurant details">
-    <button onclick="predictCuisine()">Predict</button>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="hero-section">
+                <div class="search-container">
+                    <div class="input-wrapper">
+                        <input 
+                            type="text" 
+                            id="text" 
+                            class="search-input" 
+                            placeholder="Describe a restaurant or dish..."
+                            autocomplete="off"
+                        >
+                        <button class="search-btn" onclick="predictCuisine()">
+                            <span class="btn-icon">→</span>
+                            <span class="btn-text">Classify</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
 
-    <h2 id="result"></h2>
+            <!-- Result Section -->
+            <section class="result-section" id="resultSection" style="display: none;">
+                <div class="result-card">
+                    <div class="result-content">
+                        <p class="result-label">Predicted Cuisine</p>
+                        <h2 class="result-text" id="result"></h2>
+                        <button class="secondary-btn" onclick="clearResult()">Classify Another</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Info Section -->
+            <section class="info-section">
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">🤖</div>
+                        <h3>AI Powered</h3>
+                        <p>Advanced machine learning models for accurate classification</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">⚡</div>
+                        <h3>Instant Results</h3>
+                        <p>Get predictions in real-time as you type</p>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon">🎯</div>
+                        <h3>Accurate</h3>
+                        <p>Trained on extensive cuisine datasets for precision</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2026 Cuisine Classification. Powered by AI.</p>
+        </footer>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div class="loading-spinner" id="loadingSpinner" style="display: none;"></div>
 
     <script src="script.js"></script>
 </body>
